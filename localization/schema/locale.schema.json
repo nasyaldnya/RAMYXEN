@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ramyxen.local/schemas/locale.schema.json",
+  "title": "RAMYXEN Language Pack Schema",
+  "description": "Schema for flat, dot-namespaced UTF-8 JSON language packs in RAMYXEN.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^[a-z][a-zA-Z0-9]*(\\.[a-z][a-zA-Z0-9]*)+$": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    }
+  }
+}

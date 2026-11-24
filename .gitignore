@@ -1,0 +1,120 @@
+# ==============================================================================
+# RAMYXEN .gitignore — Security, Memory Dump Protection & Build Hygiene
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# CRITICAL: Memory Dumps, Forensic Images & Diagnostic Captures (Sensitive PII!)
+# Never allow raw RAM images, process dumps, or ETW traces into Git.
+# ------------------------------------------------------------------------------
+*.dmp
+*.mdmp
+*.hdmp
+*.raw
+*.vmem
+*.vmsn
+*.aff4
+*.lime
+*.etl
+*.etlx
+*.gcdump
+*.rmp
+*.mmp
+*.rmxsnap
+*.ramyxen-snap
+dumps/
+captures/
+forensics-cases/
+snapshots/
+traces/
+
+# ------------------------------------------------------------------------------
+# Secrets, Certificates & Local Credentials
+# ------------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pfx
+*.p12
+*.snk
+*.key
+*.pem
+*.cer
+*.crt
+*.secrets.json
+secrets.json
+appsettings.Local.json
+appsettings.Development.local.json
+
+# ------------------------------------------------------------------------------
+# Windows / .NET / WinUI 3 / C++ / Rust Build Outputs
+# ------------------------------------------------------------------------------
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+!docs/release/
+!docs/release/**
+x64/
+x86/
+ARM64/
+AppPackages/
+BundleArtifacts/
+Generated Files/
+out/
+dist/
+build/
+target/
+*.exe
+*.dll
+*.sys
+*.pdb
+*.lib
+*.exp
+*.ilk
+*.obj
+*.pch
+*.idb
+*.msix
+*.msixbundle
+*.appx
+*.appxbundle
+*.nupkg
+# Local build & release staging (never commit build outputs or release binaries)
+artifacts/
+artifacts/RAMYXEN-Portable-win-x64.zip
+artifacts/RAMYXEN-Setup.exe
+artifacts/setup_build/
+# Local build & release staging (never commit build outputs or release binaries)
+artifacts/
+artifacts/remediation-*/
+
+# ------------------------------------------------------------------------------
+# Node.js / Tooling / Test Artifacts
+# ------------------------------------------------------------------------------
+node_modules/
+TestResults/
+coverage/
+*.trx
+*.lcov
+npm-debug.log*
+yarn-error.log*
+
+# ------------------------------------------------------------------------------
+# IDE, Editor & OS Temporary Files
+# ------------------------------------------------------------------------------
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.tmp
+*.temp
+*.bak
+*.log
+*.swp
+tmp/
+temp/
+Thumbs.db
+Desktop.ini
+.DS_Store

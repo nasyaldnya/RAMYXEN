@@ -1,0 +1,60 @@
+{
+  "$schema": "./schema/languages.schema.json",
+  "defaultLocale": "en-US",
+  "canonicalLocale": "en-US",
+  "packSchemaVersion": "1.0.0",
+  "languages": [
+    {
+      "locale": "en-US",
+      "nativeName": "English",
+      "englishName": "English (United States)",
+      "direction": "ltr",
+      "fallbackLocale": null,
+      "availability": "official",
+      "pluralCategories": ["one", "other"],
+      "fontPreferences": {
+        "ui": ["Segoe UI Variable", "Segoe UI", "system-ui", "sans-serif"],
+        "mono": ["Cascadia Code", "Cascadia Mono", "Consolas", "monospace"]
+      }
+    },
+    {
+      "locale": "ar-SA",
+      "nativeName": "العربية",
+      "englishName": "Arabic (Saudi Arabia)",
+      "direction": "rtl",
+      "fallbackLocale": "en-US",
+      "availability": "official",
+      "pluralCategories": ["zero", "one", "two", "few", "many", "other"],
+      "fontPreferences": {
+        "ui": ["Segoe UI Variable", "Segoe UI", "Tahoma", "Noto Sans Arabic", "sans-serif"],
+        "mono": ["Cascadia Code", "Cascadia Mono", "Consolas", "monospace"]
+      }
+    },
+    {
+      "locale": "zh-CN",
+      "nativeName": "简体中文",
+      "englishName": "Chinese (Simplified)",
+      "direction": "ltr",
+      "fallbackLocale": "en-US",
+      "availability": "official",
+      "pluralCategories": ["other"],
+      "fontPreferences": {
+        "ui": ["Microsoft YaHei UI", "Segoe UI Variable", "Segoe UI", "sans-serif"],
+        "mono": ["Cascadia Code", "Cascadia Mono", "Consolas", "monospace"]
+      }
+    },
+    {
+      "locale": "ja-JP",
+      "nativeName": "日本語",
+      "englishName": "Japanese (Japan)",
+      "direction": "ltr",
+      "fallbackLocale": "en-US",
+      "availability": "official",
+      "pluralCategories": ["other"],
+      "fontPreferences": {
+        "ui": ["Yu Gothic UI", "Meiryo UI", "Segoe UI Variable", "Segoe UI", "sans-serif"],
+        "mono": ["Cascadia Code", "Cascadia Mono", "Consolas", "monospace"]
+      }
+    }
+  ]
+}

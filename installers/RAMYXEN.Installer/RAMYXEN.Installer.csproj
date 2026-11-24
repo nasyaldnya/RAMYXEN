@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0-windows10.0.22621.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.22000.0</TargetPlatformMinVersion>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PlatformTarget>x64</PlatformTarget>
+    <AssemblyName>RAMYXEN-Setup</AssemblyName>
+    <ApplicationIcon>Assets\RAMYXEN.ico</ApplicationIcon>
+    <Product>RAMYXEN — Windows Memory Intelligence Platform Setup</Product>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <PayloadZipPath Condition="'$(PayloadZipPath)' == ''">..\..\artifacts\release-v1.1.0-candidate\RAMYXEN-Portable-win-x64.zip</PayloadZipPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(PayloadZipPath)" LogicalName="RAMYXEN-Portable-win-x64.zip" Condition="Exists('$(PayloadZipPath)')" />
+  </ItemGroup>
+  <Target Name="CheckRequiredPayload" BeforeTargets="CoreCompile" Condition="!Exists('$(PayloadZipPath)')">
+    <Error Condition="'$(RequireEmbeddedPayload)' == 'true'" Text="Required installer payload ZIP was not found at '$(PayloadZipPath)'." />
+    <Warning Condition="'$(RequireEmbeddedPayload)' != 'true'" Text="Installer payload ZIP was not found at '$(PayloadZipPath)'; pass -p:RequireEmbeddedPayload=true for release builds." />
+  </Target>
+</Project>

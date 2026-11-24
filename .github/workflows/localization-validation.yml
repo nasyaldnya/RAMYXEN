@@ -1,0 +1,30 @@
+name: Localization Validation
+
+on:
+  push:
+    branches: [ main, "chore/**", "feature/**", "fix/**" ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-locales:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Validate language packs & completeness
+        shell: pwsh
+        run: .\tools\localization\validate.ps1
+
+      - name: Run automated localization tests
+        shell: pwsh
+        run: node .\tests\localization\run-localization-tests.js

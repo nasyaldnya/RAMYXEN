@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows10.0.22621.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.22000.0</TargetPlatformMinVersion>
+    <AssemblyName>RAMYXEN</AssemblyName>
+    <RootNamespace>RAMYXEN.App</RootNamespace>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <Platforms>x64</Platforms>
+    <UseWinUI>true</UseWinUI>
+    <SelfContained>true</SelfContained>
+    <WindowsPackageType>None</WindowsPackageType>
+    <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+    <DefineConstants>$(DefineConstants);DISABLE_XAML_GENERATED_MAIN</DefineConstants>
+    <ApplicationIcon>Assets\RAMYXEN.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <Product>RAMYXEN — Windows Memory Intelligence &amp; Diagnostics Platform</Product>
+    <Description>Understand Every Byte. Native Windows 11 Memory Intelligence &amp; Diagnostics.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RAMYXEN.Core\RAMYXEN.Core.csproj" />
+    <ProjectReference Include="..\RAMYXEN.Diagnostics\RAMYXEN.Diagnostics.csproj" />
+    <ProjectReference Include="..\RAMYXEN.Localization\RAMYXEN.Localization.csproj" />
+    <ProjectReference Include="..\RAMYXEN.Storage\RAMYXEN.Storage.csproj" />
+    <ProjectReference Include="..\RAMYXEN.Infrastructure.Windows\RAMYXEN.Infrastructure.Windows.csproj" />
+    <ProjectReference Include="..\RAMYXEN.Memory.Engine\RAMYXEN.Memory.Engine.csproj" />
+    <ProjectReference Include="..\RAMYXEN.ETW\RAMYXEN.ETW.csproj" />
+    <ProjectReference Include="..\RAMYXEN.Profiler\RAMYXEN.Profiler.csproj" />
+    <ProjectReference Include="..\RAMYXEN.Forensics\RAMYXEN.Forensics.csproj" />
+    <ProjectReference Include="..\RAMYXEN.Reporting\RAMYXEN.Reporting.csproj" />
+    <ProjectReference Include="..\RAMYXEN.Application\RAMYXEN.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\RAMYXEN.Native\bin\Release\RAMYXEN.Native.dll" Link="RAMYXEN.Native.dll" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" Condition="Exists('..\RAMYXEN.Native\bin\Release\RAMYXEN.Native.dll')" />
+    <None Include="..\RAMYXEN.Native\bin\Release\RAMYXEN.HeapWorker.exe" Link="RAMYXEN.HeapWorker.exe" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" Condition="Exists('..\RAMYXEN.Native\bin\Release\RAMYXEN.HeapWorker.exe')" />
+    <None Include="..\..\localization\**\*" Link="localization\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <None Include="Assets\RAMYXEN.ico" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <None Include="Assets\RAMYXEN-256.png" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <None Include="..\..\LICENSE" Link="LICENSE" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" Condition="Exists('..\..\LICENSE')" />
+    <None Include="..\..\docs\security\THIRD_PARTY_NOTICES.md" Link="THIRD_PARTY_NOTICES.md" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" Condition="Exists('..\..\docs\security\THIRD_PARTY_NOTICES.md')" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "doNotTranslate": [
+    "RAMYXEN",
+    "Windows",
+    "PID",
+    "PPID",
+    "PFN",
+    "VAD",
+    "PTE",
+    "ETW",
+    "YARA",
+    "RWX",
+    "RX",
+    "RW",
+    "ASCII",
+    "UTF-8",
+    "UTF-16LE",
+    "PDB",
+    "DLL",
+    "EXE",
+    "PPL",
+    "LOH",
+    "GC",
+    "CSV",
+    "JSON",
+    "HTML",
+    "PDF"
+  ],
+  "terms": [
+    { "key": "workingSet", "en-US": "Working Set", "ar-SA": "مجموعة العمل", "zh-CN": "工作集", "ja-JP": "ワーキングセット", "notes": "Physical RAM pages currently resident for a process." },
+    { "key": "privateWorkingSet", "en-US": "Private Working Set", "ar-SA": "مجموعة العمل الخاصة", "zh-CN": "专用工作集", "ja-JP": "プライベートワーキングセット", "notes": "Non-shared portion of Working Set." },
+    { "key": "privateBytes", "en-US": "Private Bytes", "ar-SA": "الذاكرة الخاصة الملتزَم بها", "zh-CN": "专用字节", "ja-JP": "プライベートバイト", "notes": "Committed virtual memory private to a process." },
+    { "key": "commitCharge", "en-US": "Commit Charge", "ar-SA": "الذاكرة الملتزَم بها", "zh-CN": "已提交内存", "ja-JP": "コミットチャージ", "notes": "Total committed virtual memory across RAM and Pagefile." },
+    { "key": "standbyMemory", "en-US": "Standby", "ar-SA": "الاحتياطية (متاحة)", "zh-CN": "备用内存（可用缓存）", "ja-JP": "スタンバイ（利用可能キャッシュ）", "notes": "Clean cached physical pages counted as Available." },
+    { "key": "modifiedMemory", "en-US": "Modified", "ar-SA": "المعدّلة", "zh-CN": "已修改", "ja-JP": "変更済み", "notes": "Dirty physical pages awaiting write-back to disk." },
+    { "key": "pagedPool", "en-US": "Paged Pool", "ar-SA": "مجمع الذاكرة القابل للتبديل", "zh-CN": "分页池", "ja-JP": "ページプール", "notes": "Pageable kernel-mode heap." },
+    { "key": "nonpagedPool", "en-US": "Nonpaged Pool", "ar-SA": "مجمع الذاكرة غير القابل للتبديل", "zh-CN": "非分页池", "ja-JP": "非ページプール", "notes": "Resident kernel-mode heap pinned in RAM." },
+    { "key": "hardFaults", "en-US": "Hard Faults", "ar-SA": "أخطاء الصفحات الصلبة", "zh-CN": "硬缺页中断", "ja-JP": "ハードフォールト", "notes": "Page faults requiring disk I/O." },
+    { "key": "observedGrowth", "en-US": "Observed Growth", "ar-SA": "نمو مُلاحَظ", "zh-CN": "观察到的增长", "ja-JP": "観測された増加", "notes": "Never translate as 'Confirmed Leak'." },
+    { "key": "memoryLeak", "en-US": "Memory Leak", "ar-SA": "تسرّب ذاكرة", "zh-CN": "内存泄漏", "ja-JP": "メモリリーク", "notes": "Use only for verified leaks with retention evidence." }
+  ]
+}

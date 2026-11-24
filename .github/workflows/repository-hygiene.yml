@@ -1,0 +1,31 @@
+name: Repository Hygiene & Security Check
+
+on:
+  push:
+    branches: [ main, "chore/**", "feature/**", "fix/**" ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  hygiene-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Block forbidden memory dumps, traces & key files
+        run: |
+          FORBIDDEN=$(find . -not -path './.git/*' -type f \( \
+            -name '*.dmp' -o -name '*.mdmp' -o -name '*.raw' -o -name '*.vmem' \
+            -o -name '*.aff4' -o -name '*.etl' -o -name '*.rmxsnap' \
+            -o -name '*.pfx' -o -name '*.p12' -o -name '*.key' -o -name '*.pem' \
+          \))
+          if [ -n "$FORBIDDEN" ]; then
+            echo "ERROR: Forbidden sensitive/dump files detected in repository:"
+            echo "$FORBIDDEN"
+            exit 1
+          fi
+          echo "PASS: No forbidden memory dumps, traces, or private key files detected."
